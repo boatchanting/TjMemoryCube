@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的服务 - 济忆立方</title>
+    <style>
+        /* 全局样式 - 全屏布局 */
+        :root {
+            --primary-color: #c00000; /* 同济红 */
+            --secondary-color: #8c0000;
+            --dark-color: #333;
+            --light-color: #f8f8f8;
+            --text-color: #444;
+            --accent-color: #e60012;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+            position: relative;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* 头部样式 - 固定定位 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 45px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .logo-subtext {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: block;
+            margin-top: -5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .nav-links a:hover, 
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        /* 服务介绍区域 - 全屏英雄区 */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://news.tongji.edu.cn/__local/6/E1/87/5DC21A7A7F98C9DD7D2AB5EDC66_01E0F3BB_19998.jpg?e=.jpg') center/cover no-repeat;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
+        
+        /* 服务类型 */
+        .service-types {
+            background-color: var(--light-color);
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-card.premium {
+            border: 2px solid var(--primary-color);
+            position: relative;
+        }
+        
+        .service-card.premium::before {
+            content: '优先服务';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary-color);
+            color: white;
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-weight: 600;
+        }
+        
+        .service-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-body {
+            padding: 25px;
+        }
+        
+        .service-body h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+        
+        .service-badge {
+            display: inline-block;
+            background: #e9f7ef;
+            color: #27ae60;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .service-features {
+            margin: 20px 0;
+        }
+        
+        .service-features li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        /* 服务流程 */
+        .service-process {
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            z-index: 1;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px var(--primary-color);
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .step-content {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        /* 服务人群 */
+        .target-audience {
+            background: linear-gradient(135deg, #f8f8f8 0%, #e9e9e9 100%);
+        }
+        
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .audience-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+        
+        .audience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .audience-icon {
+            font-size: 3.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .audience-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* 公益模式 */
+        .nonprofit-model {
+            background-color: #f9f9f9;
+        }
+        
+        .model-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .model-header {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+        
+        .model-header h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .model-body {
+            padding: 45px;
+        }
+        
+        .model-principles {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin: 35px 0;
+        }
+        
+        .principle-item {
+            background: #f8f8f8;
+            border-left: 5px solid var(--primary-color);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .principle-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+        
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .support-card {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .support-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .support-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* 预约表单 - 全屏设计 */
+        .booking {
+            background: linear-gradient(135deg, #c00000 0%, #8c0000 100%);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            padding: 120px 0;
+        }
+        
+        .booking h2::after {
+            background: white;
+        }
+        
+        .booking-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .booking p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 12px;
+            padding: 50px;
+            margin-top: 40px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            color: var(--text-color);
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 1.05rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(192, 0, 0, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            width: auto;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .form-note {
+            font-size: 0.95rem;
+            color: #777;
+            margin-top: 8px;
+        }
+        
+        .service-note {
+            background: #e9f7ef;
+            border-left: 5px solid #27ae60;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+        }
+        
+        /* FAQ */
+        .faq {
+            background-color: white;
+        }
+        
+        .faq-item {
+            background: var(--light-color);
+            border-radius: 8px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            font-weight: 600;
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: rgba(192, 0, 0, 0.05);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .faq-question.active::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: white;
+        }
+        
+        .faq-answer-content {
+            padding: 0 0 25px;
+            font-size: 1.05rem;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 800px;
+        }
+        
+        /* 页脚 - 全屏设计 */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 100px 0 60px;
+            min-height: 100vh;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 1.05rem;
+        }
+        
+        .contact-info i {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 50px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .copyright a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+        
+        /* 移动端全屏适配 */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+            
+            .step {
+                margin-bottom: 50px;
+            }
+            
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: var(--transition);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                padding: 30px 0;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.15rem;
+            }
+            
+            .hero {
+                min-height: 600px;
+            }
+            
+            .form-container {
+                padding: 35px 25px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .model-body {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .service-card {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .audience-icon {
+                font-size: 3rem;
+            }
+            
+            .hero {
+                padding-top: 70px;
+            }
+            
+            .booking {
+                padding: 100px 0 80px;
+            }
+            
+            .booking p {
+                font-size: 1.2rem;
+            }
+            
+            .service-note {
+                font-size: 1rem;
+                padding: 15px;
+            }
+            
+            footer {
+                padding: 80px 0 50px;
+            }
+            
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* 滚动指示器 */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .scroll-indicator span {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .scroll-icon {
+            width: 30px;
+            height: 50px;
+            border: 2px solid white;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .scroll-icon::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            animation: scroll 2s infinite;
+        }
+        
+        @keyframes scroll {
+            0% { top: 10px; opacity: 0; }
+            50% { top: 20px; opacity: 1; }
+            100% { top: 30px; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div>
+                        <span class="logo-text">济忆立方</span>
+                        <span class="logo-subtext">Tongji Memory Cube</span>
+                    </div>
+                </div>
+                <button class="hamburger" id="hamburger">☰</button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="#services">服务内容</a></li>
+                    <li><a href="#process">服务流程</a></li>
+                    <li><a href="#audience">服务对象</a></li>
+                    <li><a href="#model">公益模式</a></li>
+                    <li><a href="#booking">预约服务</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 - 全屏 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>我们的公益服务</h1>
+                <p>完全免费的校园空间记忆数字化服务，为同济学子珍藏青春记忆</p>
+                <a href="#services" class="btn btn-outline">了解我们的服务</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>探索我们的公益服务</span>
+            <div class="scroll-icon"></div>
+        </div>
+    </section>
+
+    <!-- 服务类型 -->
+    <section class="service-types" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>公益服务内容</h2>
+                <p>济忆立方作为非盈利公益组织，为同济学子提供完全免费的空间记忆留存服务</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-card premium">
+                    <div class="service-image">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.3TM5cHd-XMra0qgmWUkX4wAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="毕业生宿舍扫描">
+                    </div>
+                    <div class="service-body">
+                        <span class="service-badge">核心公益服务</span>
+                        <h3>毕业生宿舍全息扫描</h3>
+                        <p>针对应届毕业生的专属公益服务，使用专业3D扫描技术，完整记录您在同济的最后居所，保存每一个珍贵的生活细节。</p>
+                        <ul class="service-features">
+                            <li>60-90分钟专业扫描服务</li>
+                            <li>高精度3D模型重建(误差<2mm)</li>
+                            <li>WebGL在线交互平台永久访问</li>
+                            <li>专属数字纪念证书</li>
+                            <li>优先技术支持与终身维护</li>
+                        </ul>
+                        <div class="service-note">
+                            <strong>服务说明：</strong>本服务完全免费，面向同济大学应届毕业生开放。毕业季期间(5-6月)服务量较大，建议提前2-3周预约。
+                        </div>
+                        <a href="#booking" class="btn">立即预约</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="搬迁宿舍扫描">
+                    </div>
+                    <div class="service-body">
+                        <span class="service-badge">公益服务</span>
+                        <h3>搬迁空间记忆留存</h3>
+                        <p>为因校区调整需要搬迁的同学提供免费扫描服务，让您随时"回到"曾经的宿舍，重温美好时光，缓解搬迁带来的情感失落。</p>
+                        <ul class="service-features">
+                            <li>45-60分钟高效扫描服务</li>
+                            <li>标准精度3D模型重建</li>
+                            <li>WebGL在线交互平台访问</li>
+                            <li>基础纹理与细节优化</li>
+                            <li>永久云存储保障</li>
+                        </ul>
+                        <div class="service-note">
+                            <strong>服务说明：</strong>本服务完全免费，面向因学校安排需要搬迁宿舍的同济学生。服务优先级次于毕业生服务，建议提前1-2周预约。
+                        </div>
+                        <a href="#booking" class="btn">立即预约</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://news.tongji.edu.cn/__local/6/B0/8A/D31186F8EBEF7D1C12A59863132_168C1B2E_3F2E4.jpg" alt="重要空间扫描">
+                    </div>
+                    <div class="service-body">
+                        <span class="service-badge">特色公益项目</span>
+                        <h3>同济记忆空间计划</h3>
+                        <p>针对实验室、社团活动室、自习角等具有特殊意义的校园公共空间，提供公益扫描与数字化保护，共建"同济空间记忆档案"。</p>
+                        <ul class="service-features">
+                            <li>团队申请与评估</li>
+                            <li>定制化扫描方案</li>
+                            <li>多空间关联与导航</li>
+                            <li>历史变迁记录功能</li>
+                            <li>校史研究数据支持</li>
+                        </ul>
+                        <div class="service-note">
+                            <strong>服务说明：</strong>本项目面向学生组织、院系社团开放申请，需提交空间历史价值说明。由项目组评估后安排服务，完全免费。
+                        </div>
+                        <a href="#booking" class="btn">申请项目</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务流程 -->
+    <section class="service-process" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>服务流程</h2>
+                <p>简单五步，永久保存您的校园空间记忆</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>公益服务申请</h3>
+                    <div class="step-content">
+                        <p>通过官网表单或微信公众号提交服务申请，说明您的身份与需求。我们将在48小时内审核并确认您的服务资格。</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>需求沟通</h3>
+                    <div class="step-content">
+                        <p>专业志愿者与您详细沟通空间情况、特殊需求及个人期望，制定专属扫描方案，明确服务细节与时间安排。</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>现场扫描</h3>
+                    <div class="step-content">
+                        <p>志愿者团队携带专业设备上门，在您指定时间对空间进行全方位3D扫描，全程约45-90分钟，不干扰正常生活。</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>模型制作</h3>
+                    <div class="step-content">
+                        <p>志愿者技术团队进行3D模型重建、纹理贴图与细节优化，平均3-5个工作日内完成高质量数字模型制作。</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>交付体验</h3>
+                    <div class="step-content">
+                        <p>通过邮件与短信发送专属访问链接，您可随时在线查看、分享您的3D记忆空间，支持PC、手机及VR设备访问。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务人群 -->
+    <!-- <section class="target-audience" id="audience">
+        <div class="container">
+            <div class="section-title">
+                <h2>服务对象与优先级</h2>
+                <p>基于公益资源有限性，我们设立了科学的服务优先级体系</p>
+            </div>
+            
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-icon">🎓</div>
+                    <h3>应届毕业生</h3>
+                    <p>即将离开校园的毕业生是我们首要服务对象，享有最高服务优先级。我们理解毕业季的情感价值，提供全方位记忆保存服务。</p>
+                    <div class="service-note" style="margin-top: 20px; background: #e3f2fd; border-left-color: #2196f3;">
+                        <strong>申请材料：</strong>学生证、毕业证明<br>
+                        <strong>服务配额：</strong>毕业季期间每位毕业生均可申请
+                    </div>
+                </div>
+                
+                <div class="audience-card">
+                    <div class="audience-icon">🔄</div>
+                    <h3>校区搬迁学生</h3>
+                    <p>因学校安排需要从四平路校区搬迁至嘉定校区等的同学，我们提供专项服务，帮助您留下原宿舍的空间记忆，缓解搬迁带来的情感失落。</p>
+                    <div class="service-note" style="margin-top: 20px; background: #e3f2fd; border-left-color: #2196f3;">
+                        <strong>申请材料：</strong>学生证、搬迁通知<br>
+                        <strong>服务配额：</strong>根据当月志愿者资源分配
+                    </div>
+                </div>
+                
+                <div class="audience-card">
+                    <div class="audience-icon">🏆</div>
+                    <h3>特色空间项目</h3>
+                    <p>对特定空间有深厚情感连接的团队，如竞赛实验室团队、学生社团、院系活动空间等，我们提供公益数字化保护，共建同济记忆档案。</p>
+                    <div class="service-note" style="margin-top: 20px; background: #e3f2fd; border-left-color: #2196f3;">
+                        <strong>申请材料：</strong>项目计划书、空间历史价值说明<br>
+                        <strong>服务配额：</strong>每学期评估10-15个特色空间
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 公益模式 -->
+    <section class="nonprofit-model" id="model">
+        <div class="container">
+            <div class="section-title">
+                <h2>公益运行模式</h2>
+                <p>透明、可持续的公益服务体系</p>
+            </div>
+            
+            <div class="model-container">
+                <div class="model-header">
+                    <h3>济忆立方公益服务原则</h3>
+                    <p>完全免费 · 透明公开 · 可持续发展</p>
+                </div>
+                <div class="model-body">
+                    <p>济忆立方作为同济大学学生公益组织，坚持<strong>完全免费</strong>的服务原则，不向服务对象收取任何费用。我们通过以下方式确保项目的可持续运行：</p>
+                    
+                    <div class="model-principles">
+                        <div class="principle-item">
+                            <h4>资源整合原则</h4>
+                            <p>通过学校支持、校友捐赠、企业社会责任项目等渠道筹集设备与运营资金，确保基础服务能力。</p>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <h4>志愿服务体系</h4>
+                            <p>建立完善的志愿者招募、培训与激励机制，通过社会实践认证、技能提升、公益证明等方式，维持稳定的志愿者团队。</p>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <h4>资源优化配置</h4>
+                            <p>根据服务对象的紧迫性与情感需求，科学分配有限的志愿者时间与设备资源，最大化公益价值。</p>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <h4>透明公开运营</h4>
+                            <p>定期公开项目运行数据、资源使用情况与成果展示，接受学校、校友与社会监督，确保公益初心不变。</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="text-align: center; margin: 50px 0 30px;">支持我们的公益事业</h3>
+                    <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem;">济忆立方的持续发展需要您的支持。我们提供多种公益参与方式：</p>
+                    
+                    <div class="support-options">
+                        <div class="support-card">
+                            <div class="support-icon">🙋‍♂️</div>
+                            <h3>成为志愿者</h3>
+                            <p>加入我们的技术、运营或行政团队，用专业技能服务同济学子，收获实践经验与公益价值。</p>
+                            <a href="volunteer.html" class="btn" style="margin-top: 20px;">志愿者报名</a>
+                        </div>
+                        
+                        <div class="support-card">
+                            <div class="support-icon">💝</div>
+                            <h3>公益捐赠</h3>
+                            <p>支持设备更新、云存储扩容与项目推广，所有捐赠将100%用于服务提升，并定期公示使用明细。</p>
+                            <a href="#" class="btn" style="margin-top: 20px;">捐赠支持</a>
+                        </div>
+                        
+                        <div class="support-card">
+                            <div class="support-icon">🤝</div>
+                            <h3>合作伙伴</h3>
+                            <p>欢迎企业、校友组织与院系合作，共同推动校园记忆保存事业，打造有温度的同济文化传承。</p>
+                            <a href="#" class="btn" style="margin-top: 20px;">合作洽谈</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 预约表单 - 全屏 -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <div class="section-title">
+                <h2>公益服务申请</h2>
+                <p>填写申请表，开启您的校园记忆保存之旅</p>
+            </div>
+            
+            <div class="booking-content">
+                <p>作为公益服务，我们需要确认您的服务资格。志愿者团队将在48小时内审核您的申请并联系您</p>
+                
+                <div class="form-container">
+                    <form id="service-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="student-id">学号</label>
+                                <input type="text" id="student-id" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">手机号码</label>
+                                <input type="tel" id="phone" class="form-control" required>
+                                <div class="form-note">用于服务确认与进度通知</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">邮箱地址</label>
+                                <input type="email" id="email" class="form-control" required>
+                                <div class="form-note">用于接收数字模型访问链接</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="campus">所在校区</label>
+                                <select id="campus" class="form-control" required>
+                                    <option value="">请选择校区</option>
+                                    <option value="siping">四平路校区</option>
+                                    <option value="jiading">嘉定校区</option>
+                                    <option value="songjiang">松江校区</option>
+                                    <option value="huqiao">沪西校区</option>
+                                    <option value="huadong">沪北校区</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="dormitory">宿舍楼号与房间号</label>
+                                <input type="text" id="dormitory" class="form-control" placeholder="例如：西南八楼 315室" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="service-type">申请服务类型</label>
+                                <select id="service-type" class="form-control" required>
+                                    <option value="">请选择服务类型</option>
+                                    <option value="graduate">应届毕业生宿舍扫描</option>
+                                    <option value="relocation">校区搬迁宿舍扫描</option>
+                                    <option value="special">特色空间记忆项目</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">期望服务日期</label>
+                                <input type="date" id="date" class="form-control" required>
+                                <div class="form-note">毕业季(5-6月)申请较为集中，建议提前2-3周申请</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="proof">身份证明材料</label>
+                            <select id="proof" class="form-control" required>
+                                <option value="">请选择您的身份证明</option>
+                                <option value="graduate">毕业证明/离校清单</option>
+                                <option value="relocation">宿舍搬迁通知</option>
+                                <option value="organization">学生组织证明</option>
+                                <option value="other">其他有效证明</option>
+                            </select>
+                            <div class="form-note">申请时需准备相应证明材料，志愿者将现场核验</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="special-request">空间情况与特殊需求</label>
+                            <textarea id="special-request" class="form-control" placeholder="例如：宿舍面积、特殊布局、希望重点记录的物品或角落等"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reason">申请理由 (为什么这个空间对您特别重要)</label>
+                            <textarea id="reason" class="form-control" required placeholder="请简述这个空间对您的情感价值与记忆意义，这将帮助我们理解服务优先级"></textarea>
+                            <div class="form-note">我们重视每一个空间背后的故事，这有助于我们优化服务安排</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="checkbox" id="agreement" required style="width: auto; margin-right: 10px;">
+                            <label for="agreement" style="display: inline; font-weight: normal;">我确认提供的信息真实有效，理解济忆立方为公益服务项目，接受服务安排与志愿者时间协调。</label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">提交公益服务申请</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>公益服务常见问题</h2>
+                <p>关于公益服务申请与提供的常见疑问解答</p>
+            </div>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">济忆立方的服务真的完全免费吗？</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p><strong>是的，我们的服务完全免费。</strong> 济忆立方是由同济大学学生发起并运营的公益项目，严格遵循非盈利原则。我们不向任何服务对象收取任何形式的费用，包括扫描服务费、模型制作费、存储费或访问费。</p>
+                            <p>项目运营资金主要来源于：</p>
+                            <ul style="margin-left: 25px; margin-top: 15px;">
+                                <li>学校团委、学生活动中心的专项公益项目支持</li>
+                                <li>校友与社会爱心人士的公益捐赠</li>
+                                <li>企业社会责任(CSR)合作项目</li>
+                                <li>志愿者团队的无私奉献与技能贡献</li>
+                            </ul>
+                            <p>我们定期在官网与公众号公示资金使用情况，确保每一分资源都用于提升服务质量。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">为什么需要审核申请资格？不能为所有同学服务吗？</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>作为学生公益组织，我们面临资源有限的现实挑战：</p>
+                            <ul style="margin-left: 25px; margin-top: 15px;">
+                                <li><strong>志愿者时间有限：</strong>团队由在校学生组成，需平衡学业与公益服务</li>
+                                <li><strong>设备资源有限：</strong>专业扫描设备数量有限，需合理分配使用时间</li>
+                                <li><strong>技术处理能力有限：</strong>每个模型需3-5天人工优化，处理能力有上限</li>
+                            </ul>
+                            <p>因此，我们建立了基于情感需求紧迫性的服务优先级体系：</p>
+                            <ol style="margin-left: 25px; margin-top: 15px;">
+                                <li><strong>最高优先级：</strong>应届毕业生(面临永久失去空间)</li>
+                                <li><strong>次高优先级：</strong>校区搬迁学生(面临空间变化)</li>
+                                <li><strong>特色空间：</strong>具有校史价值的公共空间</li>
+                            </ol>
+                            <p>我们持续努力扩大志愿者团队与设备规模，希望未来能服务更多同济学子。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">如果我的申请未通过，还有其他方式获得服务吗？</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>如果因资源限制暂时无法安排您的服务，我们提供以下替代方案：</p>
+                            <ul style="margin-left: 25px; margin-top: 15px;">
+                                <li><strong>加入等待队列：</strong>我们会将您的申请纳入等待名单，在资源释放时优先联系您</li>
+                                <li><strong>自助扫描指导：</strong>提供详细的3D扫描指南与软件推荐，您可自行尝试基础扫描</li>
+                                <li><strong>参与志愿服务：</strong>加入我们的志愿者团队，学习技术后不仅可以服务他人，也能为自己保留服务名额</li>
+                                <li><strong>校友特别通道：</strong>毕业离校后，校友可通过校友会特别申请通道重新提交申请</li>
+                            </ul>
+                            <p>我们理解每个空间记忆的珍贵，会尽最大努力不让任何同济故事被遗忘。如有特殊情况，欢迎通过邮箱联系项目负责人说明详情。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">如何确保公益服务的持续性？项目会一直运行下去吗？</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>济忆立方建立了多重保障机制，确保公益服务的长期可持续性：</p>
+                            <ul style="margin-left: 25px; margin-top: 15px;">
+                                <li><strong>组织传承机制：</strong>建立完善的新老志愿者交接制度，核心知识与技能系统化文档化</li>
+                                <li><strong>资源多元化：</strong>不依赖单一资金来源，与学校、校友会、企业建立长期合作关系</li>
+                                <li><strong>技术开源：</strong>核心工作流程与技术方案开源共享，降低技术门槛与依赖</li>
+                                <li><strong>校友网络：</strong>已服务的校友形成支持网络，为项目提供持续的资源与影响力</li>
+                                <li><strong>学术价值：</strong>项目产生的"同济空间记忆档案"具有校史研究价值，获得学术机构支持</li>
+                            </ul>
+                            <p>自项目启动以来，我们已服务超过500名同济学子，建立了一套成熟可持续的公益运行模式。我们承诺：只要还有同济学子需要这项服务，济忆立方就会持续运行下去。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 - 全屏 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>济忆立方</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 25px;">同济大学校园记忆锚点公益项目，致力于用数字技术保存珍贵的校园生活记忆，为同济学子打造永恒的"记忆锚点"。</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">wx</a>
+                        <a href="#" class="social-icon">wb</a>
+                        <a href="#" class="social-icon">bd</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>联系我们</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <span>📍</span>
+                            <span>上海市杨浦区四平路1239号同济大学学生活动中心408室</span>
+                        </li>
+                        <li>
+                            <span>✉️</span>
+                            <span>tongji.memory.cube@tongji.edu.cn</span>
+                        </li>
+                        <li>
+                            <span>📱</span>
+                            <span>微信公众号：济忆立方 TongjiMemoryCube</span>
+                        </li>
+                        <li>
+                            <span>☎️</span>
+                            <span>服务时间：周一至周五 9:00-17:00（节假日除外）</span>
+                        </li>
+                        <li>
+                            <span>🕒</span>
+                            <span>志愿者值班时间：每周三、五 18:30-21:00</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>公益支持</h3>
+                    <ul class="contact-info" style="font-size: 1.1rem;">
+                        <li>🔸 <a href="#model">支持我们</a></li>
+                        <li>🔸 <a href="#">志愿者招募</a></li>
+                        <li>🔸 <a href="#">捐赠通道</a></li>
+                        <li>🔸 <a href="#">合作申请</a></li>
+                        <li>🔸 <a href="../about.html">组织章程</a></li>
+                        <li>🔸 <a href="../transparency.html">财务公示</a></li>
+                        <li>🔸 <a href="../archive.html">同济记忆档案</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 济忆立方 Tongji Memory Cube. 同济大学校园记忆锚点公益项目. 非盈利性质组织.</p>
+                <p>本项目完全免费，所有资源用于公益服务可持续发展 | <a href="../privacy.html">隐私政策</a> | <a href="../terms.html">服务条款</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端导航切换
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('nav-links').classList.toggle('active');
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动菜单
+                document.getElementById('nav-links').classList.remove('active');
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // 更新激活链接
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // 滚动时更新导航激活状态
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const scrollPosition = window.scrollY + 100; // 增加偏移量
+            
+            // 更新导航激活状态
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight && sectionId) {
+                    const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+            
+            // 透明度变化
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
+            }
+        });
+        
+        // FAQ 交互
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // 表单提交
+        document.getElementById('service-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 这里应该是实际的表单提交逻辑
+            // 为演示目的，显示成功消息
+            const formData = {
+                name: document.getElementById('name').value,
+                studentId: document.getElementById('student-id').value,
+                serviceType: document.getElementById('service-type').value
+            };
+            
+            // 模拟提交成功
+            alert(`公益服务申请提交成功！\n\n尊敬的${formData.name}同学：\n感谢您对济忆立方公益项目的信任！我们已收到您的服务申请，志愿者团队将在48小时内审核并与您联系确认细节。\n\n请注意查收短信与邮件通知。如有紧急情况，可邮件联系tongji.memory.cube@tongji.edu.cn\n\n济忆立方志愿者团队`);
+            
+            // 重置表单
+            this.reset();
+            
+            // 滚动到顶部
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 初始化激活链接
+        document.addEventListener('DOMContentLoaded', function() {
+            // 设置初始激活链接
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector('.nav-links a[href="#services"]').classList.add('active');
+            
+            // 为表单日期设置最小值（今天）
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').setAttribute('min', today);
+            
+            // 初始化时检查滚动位置
+            window.dispatchEvent(new Event('scroll'));
+        });
+        
+        // 滚动指示器点击
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+            document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
